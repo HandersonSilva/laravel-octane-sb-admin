@@ -1,0 +1,18 @@
+version: "3.6"
+services:
+  # Application service layer
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_octane
+    working_dir: /var/www/html
+    volumes:
+      - "./src:/var/www/html"
+    ports:
+      - "9000:9000"
+    networks:
+     - octane_network
+networks:
+  octane_network:
+    external: true
