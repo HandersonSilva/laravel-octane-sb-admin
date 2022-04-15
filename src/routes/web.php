@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\{ComponentController};
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.dashboard.index');
 });
+
+/** componet */
+Route::controller(ComponentController::class)
+    ->prefix('component')
+    ->name('component.')
+    ->group(function () {
+        Route::get('buttons', 'buttons')->name('button');
+        Route::get('cards', 'cards')->name('card');
+    });
