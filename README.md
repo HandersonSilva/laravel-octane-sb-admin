@@ -1,9 +1,11 @@
 # Laravel 9 + Octane + SB Admin Template + Docker
 
-## References
+## Tecnologias
 - [Laraevl 9 Octane](https://laravel.com/docs/9.x/octane)
 - [SB Admin](https://startbootstrap.com/theme/sb-admin-2)
+- [Docker](https://www.docker.com/)
 - [Laravel Breeze](https://laravel.com/docs/9.x/starter-kits)
+- [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v5/installation-laravel)
 
 Execute o seguinte comando na raiz do projeto
 ```
