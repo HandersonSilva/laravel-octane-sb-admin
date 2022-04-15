@@ -5,7 +5,8 @@ use \App\Http\Controllers\{
     ComponentController,
     UtilitiesController,
     PagesController,
-    ChartsController
+    ChartsController,
+    TableController
 };
 
 /*
@@ -62,4 +63,12 @@ Route::controller(ChartsController::class)
     ->name('charts.')
     ->group(function () {
         Route::get('charts', 'index')->name('index');
+    });
+
+/** Table */
+Route::controller(TableController::class)
+    ->prefix('table')
+    ->name('table.')
+    ->group(function () {
+        Route::get('table', 'index')->name('index');
     });
