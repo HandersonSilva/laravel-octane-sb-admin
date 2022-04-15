@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\{
     ComponentController,
     UtilitiesController,
-    PagesController
+    PagesController,
+    ChartsController
 };
 
 /*
@@ -43,7 +44,7 @@ Route::controller(UtilitiesController::class)
         Route::get('other', 'other')->name('other');
     });
 
-/** Utilities */
+/** Pages */
 Route::controller(PagesController::class)
     ->prefix('pages')
     ->name('pages.')
@@ -53,4 +54,12 @@ Route::controller(PagesController::class)
         Route::get('forgot-passord', 'forgotPassord')->name('forgot-passord');
         Route::get('page-404', 'page404')->name('page-404');
         Route::get('blank', 'blank')->name('blank');
+    });
+
+/** Charts */
+Route::controller(ChartsController::class)
+    ->prefix('charts')
+    ->name('charts.')
+    ->group(function () {
+        Route::get('charts', 'index')->name('index');
     });
