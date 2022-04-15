@@ -13,6 +13,24 @@ services:
       - "9000:9000"
     networks:
      - octane_network
+
+  octane_database:
+    container_name: octane_database
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
+      - MYSQL_DATABASE=octane
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - 3309:3306
+    networks:
+      - octane_network
+
+volumes:
+  database:
+
 networks:
   octane_network:
     external: true
