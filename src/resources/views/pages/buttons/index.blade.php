@@ -5,7 +5,7 @@
 @endpush
 @section('content')
     <!-- Page Heading -->
-    <x-page-header :title="'Bottons'">
+    <x-page-header :title="'Buttons'">
     </x-page-header>
 
     <!-- Content Row -->

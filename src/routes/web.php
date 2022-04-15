@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\{ComponentController};
+use \App\Http\Controllers\{
+    ComponentController,
+    UtilitiesController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +21,23 @@ Route::get('/', function () {
     return view('pages.dashboard.index');
 });
 
-/** componet */
+/** Componets */
 Route::controller(ComponentController::class)
     ->prefix('component')
     ->name('component.')
     ->group(function () {
         Route::get('buttons', 'buttons')->name('button');
         Route::get('cards', 'cards')->name('card');
+    });
+
+
+/** Utilities */
+Route::controller(UtilitiesController::class)
+    ->prefix('utilities')
+    ->name('utilities.')
+    ->group(function () {
+        Route::get('colors', 'colors')->name('color');
+        Route::get('borders', 'borders')->name('border');
+        Route::get('animations', 'animations')->name('animation');
+        Route::get('other', 'other')->name('other');
     });

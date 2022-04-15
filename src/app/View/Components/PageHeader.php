@@ -11,7 +11,7 @@ class PageHeader extends Component
      *
      * @return void
      */
-    public function __construct(public string $title = 'Dashboard')
+    public function __construct(public string $title = 'Dashboard', public string $subtitle = '')
     {
         //
     }
