@@ -46,6 +46,17 @@ class PagesController extends Controller
         return abort(404);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function page500()
+    {
+        return abort(500);
+    }
+
+
 
     /**
      * Display a listing of the resource.

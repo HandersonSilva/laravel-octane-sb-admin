@@ -3,6 +3,7 @@
 ## References
 - [Laraevl 9 Octane](https://laravel.com/docs/9.x/octane)
 - [SB Admin](https://startbootstrap.com/theme/sb-admin-2)
+- [Laravel Breeze](https://laravel.com/docs/9.x/starter-kits)
 
 Execute o seguinte comando na raiz do projeto
 ```

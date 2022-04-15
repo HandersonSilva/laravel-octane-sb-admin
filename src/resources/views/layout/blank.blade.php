@@ -24,7 +24,7 @@
     @stack('styles')
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-success">
 
 <div class="container">
 
