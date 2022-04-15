@@ -2,6 +2,7 @@
 <html lang="{{ config('app.locale') }}">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,58 +22,21 @@
     <link href="{{asset("css/sb-admin-2.min.css")}}" rel="stylesheet">
 
     @stack('styles')
-
 </head>
 
-<body id="page-top">
+<body class="bg-gradient-primary">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+<div class="container">
 
-    <!-- Sidebar -->
-    <x-sidebar/>
+    <!-- Content -->
+@yield('content')
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+<!--modal-->
+@stack('modal')
 
-        <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            <x-topbar/>
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-            <!-- Content -->
-            @yield('content')
-
-            <!--modal-->
-            @stack('modal')
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <x-footer/>
-
-    </div>
-    <!-- End of Content Wrapper -->
+<!-- Outer Row -->
 
 </div>
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<x-modal>
-    Select "Logout" below if you are ready to end your current session.2
-</x-modal>
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset("plugins/jquery/jquery.min.js")}}"></script>
@@ -83,7 +47,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset("js/sb-admin-2.min.js")}}"></script>
-
 
 @yield('footer-js')
 @stack('footer-js')

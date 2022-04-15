@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\{
     ComponentController,
-    UtilitiesController
+    UtilitiesController,
+    PagesController
 };
 
 /*
@@ -40,4 +41,16 @@ Route::controller(UtilitiesController::class)
         Route::get('borders', 'borders')->name('border');
         Route::get('animations', 'animations')->name('animation');
         Route::get('other', 'other')->name('other');
+    });
+
+/** Utilities */
+Route::controller(PagesController::class)
+    ->prefix('pages')
+    ->name('pages.')
+    ->group(function () {
+        Route::get('login', 'login')->name('login');
+        Route::get('register', 'register')->name('register');
+        Route::get('forgot-passord', 'forgotPassord')->name('forgot-passord');
+        Route::get('page-404', 'page404')->name('page-404');
+        Route::get('blank', 'blank')->name('blank');
     });
