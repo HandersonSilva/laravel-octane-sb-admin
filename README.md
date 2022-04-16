@@ -6,6 +6,7 @@
 - [Docker](https://www.docker.com/)
 - [Laravel Breeze](https://laravel.com/docs/9.x/starter-kits)
 - [spatie/laravel-permission](https://spatie.be/docs/laravel-permission/v5/installation-laravel)
+- [Datatable livewire rappasoft/laravel-livewire-tables](https://rappasoft.com/docs/laravel-livewire-tables/v2/examples/advanced-example)
 
 Execute o seguinte comando na raiz do projeto
 ```

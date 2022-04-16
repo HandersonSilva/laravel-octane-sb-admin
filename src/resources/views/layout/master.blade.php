@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset("css/sb-admin-2.css")}}" rel="stylesheet">
-
+    @livewireStyles
     @stack('styles')
 
 </head>
@@ -74,6 +74,8 @@
     Select "Logout" below if you are ready to end your current session.2
 </x-modal>
 
+@livewireScripts
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset("plugins/jquery/jquery.min.js")}}"></script>
 <script src="{{asset("plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
@@ -83,6 +85,8 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset("js/sb-admin-2.min.js")}}"></script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
 
 
 @yield('footer-js')

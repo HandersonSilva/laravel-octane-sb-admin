@@ -12,6 +12,6 @@ class TableController extends Controller
      */
     public function index()
     {
-        return view('pages.table.index');
+        return view('pages.table-livewire.index');
     }
 }
