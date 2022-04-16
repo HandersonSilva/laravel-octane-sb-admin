@@ -2,8 +2,6 @@
 @section('page_title', 'Tables')
 @push('styles')
     <!-- Styles here!!-->
-    <!-- Custom styles for this page -->
-    <link href="{{asset("plugins/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
 @endpush
 @section('content')
     <!-- Page Heading -->

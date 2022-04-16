@@ -1,0 +1,12 @@
+.table{
+    td{
+        vertical-align: middle!important;
+    }
+    tbody{
+        tr:hover{
+            background-color: #cfcfcf!important;
+            color: #000000;
+            cursor: pointer;
+        }
+    }
+}

@@ -6,7 +6,8 @@ use \App\Http\Controllers\{
     UtilitiesController,
     PagesController,
     ChartsController,
-    TableController
+    TableController,
+    UserController
 };
 
 /*
@@ -29,6 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('pages.dashboard.index');
     });
+
+    /** User */
+    Route::controller(UserController::class)
+        ->prefix('user')
+        ->name('user.')
+        ->group(function () {
+            Route::get('/{id}', 'edit')->name('edit');
+        });
 
     /** Componets */
     Route::controller(ComponentController::class)
