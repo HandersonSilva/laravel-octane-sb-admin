@@ -9,5 +9,9 @@
     </x-page-header>
 
     <!-- Content Row -->
-    <h3>Usuário : {{$user->name}}</h3></h3>
+    <x-card-basic :title="'Edição'">
+        <form method="POST" action="{{ route('register') }}">
+            @include('pages.user.include.content_form', ['data' => $user])
+        </form>
+    </x-card-basic>
 @endsection

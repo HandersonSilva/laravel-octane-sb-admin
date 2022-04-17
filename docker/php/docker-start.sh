@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Descomentar em desenvolvimento
+composer install
+npm install && npm run production
+
 php artisan cache:clear
 php artisan view:clear
 php artisan config:clear

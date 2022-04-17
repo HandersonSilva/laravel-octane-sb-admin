@@ -4,7 +4,7 @@
         <x-input-sb
             id="name"
             name="name"
-            value="{{old('name')}}"
+            value="{{old('name', $data ? $data->name :'')}}"
             :placeholder="'Informe o seu nome'"
             :label="'Nome'"
             :required="true"
@@ -18,7 +18,7 @@
             :placeholder="'Informe seu email'"
             :label="'Email'"
             :required="true"
-            value="{{old('email')}}"
+            value="{{old('email', $data ? $data->email :'')}}"
         />
     </div>
 </div>
@@ -30,7 +30,7 @@
             value="{{old('password')}}"
             :placeholder="'Senha'"
             :label="'Senha'"
-            :required="true"
+            :required="$data ? false : true"
             :type="'password'"
             autocomplete="new-password"
         />
@@ -41,12 +41,12 @@
             name="password_confirmation"
             :placeholder="'Confirme sua Senha'"
             :label="'Confirmar Senha'"
-            :required="true"
+            :required="$data ? false : true"
             :type="'password'"
-
         />
     </div>
 </div>
+
 <!-- Buttons -->
 <div class="card-footer">
     <div class="row">
@@ -66,6 +66,7 @@
             />
         </div>
         <div class="col-sm-6 text-right">
+            <label class="info-field-requeried mr-2">* Campos obrigatórios</label>
         </div>
     </div>
 </div>

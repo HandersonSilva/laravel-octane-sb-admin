@@ -36,6 +36,18 @@ class UsersTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            LinkColumn::make('')
+                ->title(function ($row) {
+                    return '<i class="fas fa-edit"></i>';
+                })
+                ->location(function ($row) {
+                    return route('user.edit', ['id' => $row->id]);
+                })
+                ->attributes(function ($row) {
+                    return [
+                        'class' => 'btn btn-warning btn-circle shadow-sm btn-sm',
+                    ];
+                }),
             Column::make("Id", "id")
                 ->sortable()
                 ->searchable(),
@@ -62,18 +74,6 @@ class UsersTable extends DataTableComponent
                 ->attributes(function ($row) {
                     return [
                         'class' => 'w-8 h-8 rounded-full',
-                    ];
-                }),
-            LinkColumn::make('Ação')
-                ->title(function ($row) {
-                    return '<i class="fas fa-edit"></i>';
-                })
-                ->location(function ($row) {
-                    return route('user.edit', ['id' => $row->id]);
-                })
-                ->attributes(function ($row) {
-                    return [
-                        'class' => 'btn btn-warning btn-circle shadow-sm btn-sm',
                     ];
                 }),
         ];
