@@ -6,8 +6,8 @@ use \App\Http\Controllers\{
     UtilitiesController,
     PagesController,
     ChartsController,
-    TableController,
-    UserController
+    UserController,
+    DashboardController
 };
 
 /*
@@ -27,15 +27,18 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () {
-        return view('pages.dashboard.index');
-    });
+    Route::controller(DashboardController::class)
+        ->name('dashboard.')
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+        });
 
     /** User */
     Route::controller(UserController::class)
         ->prefix('user')
         ->name('user.')
         ->group(function () {
+            Route::get('/', 'index')->name('index');
             Route::get('/{id}', 'edit')->name('edit');
         });
 
@@ -80,13 +83,6 @@ Route::middleware('auth')->group(function () {
             Route::get('charts', 'index')->name('index');
         });
 
-    /** Table */
-    Route::controller(TableController::class)
-        ->prefix('table')
-        ->name('table.')
-        ->group(function () {
-            Route::get('table', 'index')->name('index');
-        });
 });
 
 require __DIR__.'/auth.php';

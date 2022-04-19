@@ -13,11 +13,11 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
+    <x-menu-item
+        :route="route('dashboard.index')"
+        :icon="'fas fa-fw fa-tachometer-alt'"
+        :label="'Dashboard'"
+        :activeRoutes="'dashboard.*'"/>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -28,39 +28,61 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="{{route('component.button')}}">Buttons</a>
-                <a class="collapse-item" href="{{route('component.card')}}">Cards</a>
-            </div>
-        </div>
-    </li>
+    <x-menu-group
+        :id="'components'"
+        :label="'Components'"
+        :icon="'fas fa-fw fa-cog'"
+        :activeRoutes="'component.*'"
+        :labelGroupItem="'Custom Components:'"
+    >
+        <x-menu-group-item
+            :route="route('component.button')"
+            :label="'Buttons'"
+            :activeRoutes="'component.button'"
+        />
+
+        <x-menu-group-item
+            :route="route('component.card')"
+            :label="'Cards'"
+            :activeRoutes="'component.card'"
+        />
+
+    </x-menu-group>
+
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-           aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="{{route('utilities.color')}}">Colors</a>
-                <a class="collapse-item" href="{{route('utilities.border')}}">Borders</a>
-                <a class="collapse-item" href="{{route('utilities.animation')}}">Animations</a>
-                <a class="collapse-item" href="{{route('utilities.other')}}">Other</a>
-            </div>
-        </div>
-    </li>
+    <x-menu-group
+        :id="'collapseUtilities'"
+        :label="'Utilities'"
+        :icon="'fas fa-fw fa-wrench'"
+        :activeRoutes="'utilities.*'"
+        :labelGroupItem="'Custom Utilities:'"
+    >
+        <x-menu-group-item
+            :route="route('utilities.color')"
+            :label="'Colors'"
+            :activeRoutes="'utilities.color'"
+        />
+
+        <x-menu-group-item
+            :route="route('utilities.border')"
+            :label="'Borders'"
+            :activeRoutes="'utilities.border'"
+        />
+
+        <x-menu-group-item
+            :route="route('utilities.animation')"
+            :label="'Animations'"
+            :activeRoutes="'utilities.animation'"
+        />
+
+        <x-menu-group-item
+            :route="route('utilities.other')"
+            :label="'Other'"
+            :activeRoutes="'utilities.other'"
+        />
+
+    </x-menu-group>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -71,40 +93,68 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-           aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="{{route('pages.login')}}">Login</a>
-                <a class="collapse-item" href="{{route('pages.register')}}">Register</a>
-                <a class="collapse-item" href="{{route('pages.forgot-passord')}}">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="{{route('pages.page-404')}}">404 Page</a>
-                <a class="collapse-item" href="{{route('pages.page-500')}}">500 Page</a>
-                <a class="collapse-item" href="{{route('pages.blank')}}">Blank Page</a>
-            </div>
-        </div>
-    </li>
+    <x-menu-group
+        :id="'collapsePages'"
+        :label="'Pages'"
+        :icon="'fas fa-fw fa-folder'"
+        :activeRoutes="'pages.*'"
+    >
+        <h6 class="collapse-header">Login Screens:</h6>
+        <x-menu-group-item
+            :route="route('pages.login')"
+            :label="'Login'"
+            :activeRoutes="'pages.login'"
+        />
+
+        <x-menu-group-item
+            :route="route('pages.register')"
+            :label="'Register'"
+            :activeRoutes="'pages.register'"
+        />
+
+        <x-menu-group-item
+            :route="route('pages.forgot-passord')"
+            :label="'Forgot Password'"
+            :activeRoutes="'pages.forgot-passord'"
+        />
+
+        <div class="collapse-divider"></div>
+        <h6 class="collapse-header">Other Pages:</h6>
+
+        <x-menu-group-item
+            :route="route('pages.page-404')"
+            :label="'404 Page'"
+            :activeRoutes="'pages.page-404'"
+        />
+
+        <x-menu-group-item
+            :route="route('pages.page-500')"
+            :label="'500 Page'"
+            :activeRoutes="'pages.page-500'"
+        />
+
+        <x-menu-group-item
+            :route="route('pages.blank')"
+            :label="'Blank Page'"
+            :activeRoutes="'pages.blank'"
+        />
+
+    </x-menu-group>
+
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('charts.index')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
+    <x-menu-item
+        :route="route('charts.index')"
+        :icon="'fas fa-fw fa-chart-area'"
+        :label="'Charts'"
+        :activeRoutes="'charts.*'"/>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('table.index')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-    </li>
+    <x-menu-item
+        :route="route('user.index')"
+        :icon="'fal fa-user-cog'"
+        :label="'Users'"
+        :activeRoutes="'user.*'"/>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
@@ -117,7 +167,8 @@
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="{{asset("img/undraw_rocket.svg")}}" alt="...">
-        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!
+        </p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
     </div>
 </ul>
