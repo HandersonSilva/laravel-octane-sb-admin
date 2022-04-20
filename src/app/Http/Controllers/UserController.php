@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\UserRequest;
+use App\Interfaces\Repositories\UserRepositoryInterface;
 
 class UserController extends Controller
 {
+    public function __construct(public UserRepositoryInterface $userRepositoryInterface)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,53 +28,42 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $userRequest)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
+        return $this->userRepositoryInterface->createObject($userRequest->validated());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = $this->userRepositoryInterface->findObject($id);
+
         return view('pages.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $userRequest, $id)
     {
-        //
+        return $this->userRepositoryInterface->updateObject($id, $userRequest->validated());
     }
 
     /**
@@ -81,6 +74,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->userRepositoryInterface->deleteObject($id);
     }
 }

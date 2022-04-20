@@ -9,11 +9,10 @@
     </x-page-header>
 
     <!-- Content Row -->
-    <x-card-basic :title="'Edição'">
-        <form method="POST" action="{{route('user.update', $user->id)}}">
-            <input type="hidden" name="_method" value="PUT">
+    <x-card-basic :title="'Cadastro'">
+        <form method="POST" action="{{ route('user.store') }}">
             @csrf
-            @include('pages.user.include.content_form', ['data' => $user])
+            @include('pages.user.include.content_form',['data' => null])
         </form>
     </x-card-basic>
 @endsection

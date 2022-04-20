@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset("css/sb-admin-2.css")}}" rel="stylesheet">
+    <link href="{{asset("plugins/toastify/toastify.min.css")}}" rel="stylesheet">
+
     @livewireStyles
     @stack('styles')
 
@@ -85,8 +87,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset("js/sb-admin-2.min.js")}}"></script>
+<script src="{{asset("plugins/toastify/toastify.js")}}"></script>
 
-<script src="//unpkg.com/alpinejs" defer></script>
+<x-session-message-sb/>
 
 
 @yield('footer-js')

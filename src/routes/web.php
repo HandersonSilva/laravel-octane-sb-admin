@@ -39,7 +39,11 @@ Route::middleware('auth')->group(function () {
         ->name('user.')
         ->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::get('/{id}', 'edit')->name('edit');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+            Route::put('/update/{id}', 'update')->name('update');
+            Route::get('/{id}', 'destroy')->name('destroy');
         });
 
     /** Componets */

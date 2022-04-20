@@ -1,4 +1,3 @@
-@csrf
 <div class="form-group row">
     <div class="col-sm-6 mb-3 mb-sm-0">
         <x-input-sb
@@ -59,7 +58,7 @@
             />
 
             <x-button-link-sb
-                href="{{ route('table.index') }}"
+                href="{{ route('user.index') }}"
                 :class="'btn-danger'"
                 :icon="'fas fa-window-close fa-sm text-white-50'"
                 :label="'Cancelar'"

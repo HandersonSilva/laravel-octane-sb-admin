@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
@@ -13,8 +14,7 @@ class UsersTable extends DataTableComponent
     protected $model = User::class;
 
     public array $bulkActions = [
-        'delete' => 'Excluir',
-        'edit' => 'Editar',
+        'delete' => 'Excluir Selecionados',
     ];
 
     public function configure(): void
@@ -45,7 +45,21 @@ class UsersTable extends DataTableComponent
                 })
                 ->attributes(function ($row) {
                     return [
+                        'title' => 'Editar',
                         'class' => 'btn btn-warning btn-circle shadow-sm btn-sm',
+                    ];
+                }),
+            LinkColumn::make('')
+                ->title(function ($row) {
+                    return '<i class="fas fa-trash"></i>';
+                })
+                ->location(function ($row) {
+                    return route('user.destroy',$row->id);
+                })
+                ->attributes(function ($row) {
+                    return [
+                        'title' => 'Excluir',
+                        'class' => 'btn btn-danger btn-circle shadow-sm btn-sm',
                     ];
                 }),
             Column::make("Id", "id")
@@ -81,14 +95,8 @@ class UsersTable extends DataTableComponent
 
     public function delete(): void
     {
-        User::whereIn('id', $this->getSelected())->delete();
-
-        $this->clearSelected();
-    }
-
-    public function edit(): void
-    {
-        redirect()->route('user', ['id' => $this->getSelected()[0]]);
+        User::whereIn('id', $this->getSelected())
+            ->where('id', '<>', Auth::user()->id)->delete();
 
         $this->clearSelected();
     }
